@@ -1,0 +1,1208 @@
+{
+  "system-security-plan": {
+    "uuid": "6dd26b17-2a96-593c-801e-82d1a11c2610",
+    "metadata": {
+      "title": "Sample AWS Environment System Security Plan (Draft)",
+      "last-modified": "2026-11-17T21:00:46+00:00",
+      "version": "0.1.0-draft",
+      "oscal-version": "1.1.2",
+      "props": [
+        {
+          "name": "marking",
+          "value": "CUI"
+        },
+        {
+          "name": "generator",
+          "value": "oscal-ssp-generator 0.1.0"
+        }
+      ],
+      "roles": [
+        {
+          "id": "system-owner",
+          "title": "System Owner"
+        },
+        {
+          "id": "authorizing-official",
+          "title": "Authorizing Official"
+        },
+        {
+          "id": "isso",
+          "title": "Information System Security Officer"
+        }
+      ],
+      "parties": [
+        {
+          "uuid": "86b40437-149c-5c23-ac82-5a7eb130a7bb",
+          "type": "organization",
+          "name": "My Organization"
+        }
+      ],
+      "responsible-parties": [
+        {
+          "role-id": "system-owner",
+          "party-uuids": [
+            "86b40437-149c-5c23-ac82-5a7eb130a7bb"
+          ]
+        }
+      ]
+    },
+    "import-profile": {
+      "href": "https://raw.githubusercontent.com/GSA/fedramp-automation/master/dist/content/rev5/baselines/json/FedRAMP_rev5_MODERATE-baseline_profile.json"
+    },
+    "system-characteristics": {
+      "system-ids": [
+        {
+          "identifier-type": "https://ietf.org/rfc/rfc4122",
+          "id": "8c0655a5-a3d1-5746-9749-864aa1467727"
+        }
+      ],
+      "system-name": "Sample AWS Environment",
+      "description": "Draft System Security Plan auto-generated from terraform input covering 10 discovered AWS resources across 10 resource types.",
+      "date-authorized": "2026-11-17",
+      "security-sensitivity-level": "fips-199-moderate",
+      "system-information": {
+        "information-types": [
+          {
+            "uuid": "df8028cb-442e-5af8-a9ec-80df26d1bfb9",
+            "title": "System Operations Information",
+            "description": "Information related to the operation and management of the cloud infrastructure described in this plan.",
+            "categorizations": [
+              {
+                "system": "https://doi.org/10.6028/NIST.SP.800-60v2r1",
+                "information-type-ids": [
+                  "C.3.5.1"
+                ]
+              }
+            ],
+            "confidentiality-impact": {
+              "base": "fips-199-moderate"
+            },
+            "integrity-impact": {
+              "base": "fips-199-moderate"
+            },
+            "availability-impact": {
+              "base": "fips-199-moderate"
+            }
+          }
+        ]
+      },
+      "security-impact-level": {
+        "security-objective-confidentiality": "fips-199-moderate",
+        "security-objective-integrity": "fips-199-moderate",
+        "security-objective-availability": "fips-199-moderate"
+      },
+      "status": {
+        "state": "under-development"
+      },
+      "authorization-boundary": {
+        "description": "Logical authorization boundary inferred from the provided infrastructure inventory. Review and refine before submission."
+      }
+    },
+    "system-implementation": {
+      "users": [
+        {
+          "uuid": "28921127-90ee-5d84-b2eb-dbed20d3028b",
+          "title": "System Administrator",
+          "role-ids": [
+            "system-owner"
+          ],
+          "authorized-privileges": [
+            {
+              "title": "Full Administrative Access",
+              "functions-performed": [
+                "Manage infrastructure and security controls"
+              ]
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "uuid": "c76fde70-14ba-524f-a866-13f475eaa8ea",
+          "type": "this-system",
+          "title": "Sample AWS Environment",
+          "description": "The overall system described by this SSP.",
+          "status": {
+            "state": "under-development"
+          }
+        },
+        {
+          "uuid": "a2fba1d9-c469-5f47-b353-29229eb453d5",
+          "type": "service",
+          "title": "aws_cloudtrail",
+          "description": "1 aws_cloudtrail resource(s) discovered in the inventory.",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_cloudtrail"
+            },
+            {
+              "name": "resource-count",
+              "value": "1"
+            }
+          ],
+          "status": {
+            "state": "operational"
+          }
+        },
+        {
+          "uuid": "559f56b5-7b38-56a9-8575-f5e937ec080e",
+          "type": "service",
+          "title": "aws_cloudwatch_log_group",
+          "description": "1 aws_cloudwatch_log_group resource(s) discovered in the inventory.",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_cloudwatch_log_group"
+            },
+            {
+              "name": "resource-count",
+              "value": "1"
+            }
+          ],
+          "status": {
+            "state": "operational"
+          }
+        },
+        {
+          "uuid": "22cd3211-af2d-5d65-b3ef-118b6720dfcb",
+          "type": "service",
+          "title": "aws_db_instance",
+          "description": "1 aws_db_instance resource(s) discovered in the inventory.",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_db_instance"
+            },
+            {
+              "name": "resource-count",
+              "value": "1"
+            }
+          ],
+          "status": {
+            "state": "operational"
+          }
+        },
+        {
+          "uuid": "497bbbeb-cd78-5557-8332-7689d6fc69b1",
+          "type": "service",
+          "title": "aws_guardduty_detector",
+          "description": "1 aws_guardduty_detector resource(s) discovered in the inventory.",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_guardduty_detector"
+            },
+            {
+              "name": "resource-count",
+              "value": "1"
+            }
+          ],
+          "status": {
+            "state": "operational"
+          }
+        },
+        {
+          "uuid": "c05a108c-4f3b-5403-a2e8-e521dc35565c",
+          "type": "service",
+          "title": "aws_iam_role",
+          "description": "1 aws_iam_role resource(s) discovered in the inventory.",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_iam_role"
+            },
+            {
+              "name": "resource-count",
+              "value": "1"
+            }
+          ],
+          "status": {
+            "state": "operational"
+          }
+        },
+        {
+          "uuid": "9bd20267-fb4b-547d-8a02-ea7787f5a4f2",
+          "type": "service",
+          "title": "aws_kms_key",
+          "description": "1 aws_kms_key resource(s) discovered in the inventory.",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_kms_key"
+            },
+            {
+              "name": "resource-count",
+              "value": "1"
+            }
+          ],
+          "status": {
+            "state": "operational"
+          }
+        },
+        {
+          "uuid": "f6cb4821-b457-5b7f-99da-32102249adb3",
+          "type": "service",
+          "title": "aws_lb",
+          "description": "1 aws_lb resource(s) discovered in the inventory.",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_lb"
+            },
+            {
+              "name": "resource-count",
+              "value": "1"
+            }
+          ],
+          "status": {
+            "state": "operational"
+          }
+        },
+        {
+          "uuid": "17aba842-c75a-5d0f-bd85-fabe5dfa9b3e",
+          "type": "service",
+          "title": "aws_s3_bucket",
+          "description": "1 aws_s3_bucket resource(s) discovered in the inventory.",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_s3_bucket"
+            },
+            {
+              "name": "resource-count",
+              "value": "1"
+            }
+          ],
+          "status": {
+            "state": "operational"
+          }
+        },
+        {
+          "uuid": "6c88e31c-afab-5183-b4d9-0fa7ab1c8998",
+          "type": "service",
+          "title": "aws_security_group",
+          "description": "1 aws_security_group resource(s) discovered in the inventory.",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_security_group"
+            },
+            {
+              "name": "resource-count",
+              "value": "1"
+            }
+          ],
+          "status": {
+            "state": "operational"
+          }
+        },
+        {
+          "uuid": "f4ac9d54-b027-5a15-806a-9a21dbcc156f",
+          "type": "service",
+          "title": "aws_vpc",
+          "description": "1 aws_vpc resource(s) discovered in the inventory.",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_vpc"
+            },
+            {
+              "name": "resource-count",
+              "value": "1"
+            }
+          ],
+          "status": {
+            "state": "operational"
+          }
+        }
+      ],
+      "inventory-items": [
+        {
+          "uuid": "4260c632-57dd-5b83-b937-feb1c8d9510a",
+          "description": "aws_s3_bucket: arn:aws:s3:::my-org-app-data",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_s3_bucket"
+            },
+            {
+              "name": "region",
+              "value": "us-east-1"
+            },
+            {
+              "name": "asset-id",
+              "value": "arn:aws:s3:::my-org-app-data"
+            }
+          ],
+          "implemented-components": [
+            {
+              "component-uuid": "17aba842-c75a-5d0f-bd85-fabe5dfa9b3e"
+            }
+          ]
+        },
+        {
+          "uuid": "00199be7-803b-5ca8-b6d8-737564339e3e",
+          "description": "aws_kms_key: arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_kms_key"
+            },
+            {
+              "name": "region",
+              "value": "us-east-1"
+            },
+            {
+              "name": "asset-id",
+              "value": "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+            }
+          ],
+          "implemented-components": [
+            {
+              "component-uuid": "9bd20267-fb4b-547d-8a02-ea7787f5a4f2"
+            }
+          ]
+        },
+        {
+          "uuid": "4b66b3e4-c7a8-577b-ba26-c77e8ef4c148",
+          "description": "aws_security_group: arn:aws:ec2:us-east-1:111122223333:security-group/sg-0a1b2c3d4e5f6a7b8",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_security_group"
+            },
+            {
+              "name": "region",
+              "value": "us-east-1"
+            },
+            {
+              "name": "asset-id",
+              "value": "arn:aws:ec2:us-east-1:111122223333:security-group/sg-0a1b2c3d4e5f6a7b8"
+            }
+          ],
+          "implemented-components": [
+            {
+              "component-uuid": "6c88e31c-afab-5183-b4d9-0fa7ab1c8998"
+            }
+          ]
+        },
+        {
+          "uuid": "4a1db1bc-d473-54b3-8d70-fe3f88238616",
+          "description": "aws_vpc: arn:aws:ec2:us-east-1:111122223333:vpc/vpc-0abc123def456",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_vpc"
+            },
+            {
+              "name": "region",
+              "value": "us-east-1"
+            },
+            {
+              "name": "asset-id",
+              "value": "arn:aws:ec2:us-east-1:111122223333:vpc/vpc-0abc123def456"
+            }
+          ],
+          "implemented-components": [
+            {
+              "component-uuid": "f4ac9d54-b027-5a15-806a-9a21dbcc156f"
+            }
+          ]
+        },
+        {
+          "uuid": "d9244147-6303-513b-8607-050dbc97d4f9",
+          "description": "aws_iam_role: arn:aws:iam::111122223333:role/my-org-app-exec-role",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_iam_role"
+            },
+            {
+              "name": "asset-id",
+              "value": "arn:aws:iam::111122223333:role/my-org-app-exec-role"
+            }
+          ],
+          "implemented-components": [
+            {
+              "component-uuid": "c05a108c-4f3b-5403-a2e8-e521dc35565c"
+            }
+          ]
+        },
+        {
+          "uuid": "bb9fd2a4-d854-58b5-861b-26dc7441e624",
+          "description": "aws_cloudtrail: arn:aws:cloudtrail:us-east-1:111122223333:trail/my-org-trail",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_cloudtrail"
+            },
+            {
+              "name": "region",
+              "value": "us-east-1"
+            },
+            {
+              "name": "asset-id",
+              "value": "arn:aws:cloudtrail:us-east-1:111122223333:trail/my-org-trail"
+            }
+          ],
+          "implemented-components": [
+            {
+              "component-uuid": "a2fba1d9-c469-5f47-b353-29229eb453d5"
+            }
+          ]
+        },
+        {
+          "uuid": "45332883-3b05-5ff1-b422-0c0434bb0a1c",
+          "description": "aws_db_instance: arn:aws:rds:us-east-1:111122223333:db:my-org-app-db",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_db_instance"
+            },
+            {
+              "name": "region",
+              "value": "us-east-1"
+            },
+            {
+              "name": "asset-id",
+              "value": "arn:aws:rds:us-east-1:111122223333:db:my-org-app-db"
+            }
+          ],
+          "implemented-components": [
+            {
+              "component-uuid": "22cd3211-af2d-5d65-b3ef-118b6720dfcb"
+            }
+          ]
+        },
+        {
+          "uuid": "ba79dad2-f8a9-5c27-8974-f8f07b7cb4cc",
+          "description": "aws_guardduty_detector: 12abc34d567e8f901234567890abcdef",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_guardduty_detector"
+            },
+            {
+              "name": "region",
+              "value": "us-east-1"
+            },
+            {
+              "name": "asset-id",
+              "value": "12abc34d567e8f901234567890abcdef"
+            }
+          ],
+          "implemented-components": [
+            {
+              "component-uuid": "497bbbeb-cd78-5557-8332-7689d6fc69b1"
+            }
+          ]
+        },
+        {
+          "uuid": "93cb48dc-29a0-50c5-bfd6-361806b4f1c3",
+          "description": "aws_cloudwatch_log_group: arn:aws:logs:us-east-1:111122223333:log-group:/my-org/app",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_cloudwatch_log_group"
+            },
+            {
+              "name": "region",
+              "value": "us-east-1"
+            },
+            {
+              "name": "asset-id",
+              "value": "arn:aws:logs:us-east-1:111122223333:log-group:/my-org/app"
+            }
+          ],
+          "implemented-components": [
+            {
+              "component-uuid": "559f56b5-7b38-56a9-8575-f5e937ec080e"
+            }
+          ]
+        },
+        {
+          "uuid": "09fea6bf-6267-5c3c-a600-4ddeb864b77f",
+          "description": "aws_lb: arn:aws:elasticloadbalancing:us-east-1:111122223333:loadbalancer/app/my-org-public-alb/abc123",
+          "props": [
+            {
+              "name": "resource-type",
+              "value": "aws_lb"
+            },
+            {
+              "name": "region",
+              "value": "us-east-1"
+            },
+            {
+              "name": "asset-id",
+              "value": "arn:aws:elasticloadbalancing:us-east-1:111122223333:loadbalancer/app/my-org-public-alb/abc123"
+            }
+          ],
+          "implemented-components": [
+            {
+              "component-uuid": "f6cb4821-b457-5b7f-99da-32102249adb3"
+            }
+          ]
+        }
+      ]
+    },
+    "control-implementation": {
+      "description": "Control implementation mapped from discovered AWS resources to the FedRAMP Moderate baseline (NIST SP 800-53 Rev 5). Each requirement is a draft starting point requiring human validation.",
+      "implemented-requirements": [
+        {
+          "uuid": "1e8c981d-b75f-5140-9b25-f33911dad145",
+          "control-id": "AC-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "AC-2_smt",
+              "uuid": "53b38383-d971-5fe7-beaa-e0acff7f8fca",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_iam_role. (Account Management)"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "c05a108c-4f3b-5403-a2e8-e521dc35565c",
+              "uuid": "98c9552c-61a8-5e90-9a63-d0717ef40e25",
+              "description": "Implemented via aws_iam_role resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "2729feb0-be80-5fa9-8924-bb38d9180d9a",
+          "control-id": "AC-3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "AC-3_smt",
+              "uuid": "a19cfc4c-05ed-50b6-95e6-c8adbd7c0816",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_iam_role, aws_s3_bucket. (Access Enforcement)"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "c05a108c-4f3b-5403-a2e8-e521dc35565c",
+              "uuid": "a3b42b06-7afb-5392-8410-bbaf06677502",
+              "description": "Implemented via aws_iam_role resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            },
+            {
+              "component-uuid": "17aba842-c75a-5d0f-bd85-fabe5dfa9b3e",
+              "uuid": "9fbf5bff-e849-5105-b485-e066ef82bb67",
+              "description": "Implemented via aws_s3_bucket resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "3ea010f0-b586-5502-93e9-c749f9b5999e",
+          "control-id": "AC-4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "AC-4_smt",
+              "uuid": "a086f553-7aa9-59a8-9d3e-39b70262e247",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_security_group, aws_vpc. (Information Flow Enforcement)"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "6c88e31c-afab-5183-b4d9-0fa7ab1c8998",
+              "uuid": "10853a77-23bb-5fa7-a76e-ffa3195d5237",
+              "description": "Implemented via aws_security_group resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            },
+            {
+              "component-uuid": "f4ac9d54-b027-5a15-806a-9a21dbcc156f",
+              "uuid": "35d06121-8d24-5590-9557-209b9042f071",
+              "description": "Implemented via aws_vpc resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "7f22d498-529f-5866-aa0c-239336aa828f",
+          "control-id": "AC-6",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "AC-6_smt",
+              "uuid": "507227a0-3731-565e-9b35-d310c840b024",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_iam_role. (Least Privilege)"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "c05a108c-4f3b-5403-a2e8-e521dc35565c",
+              "uuid": "bbf224c2-cb91-583e-a791-7bc84039d214",
+              "description": "Implemented via aws_iam_role resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "d7ea03a1-0a92-543a-a0cb-be612fffbf23",
+          "control-id": "AU-12",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "AU-12_smt",
+              "uuid": "fb7c521f-b160-5785-ae3d-3a16760729d9",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_cloudtrail. (Audit Record Generation)"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "a2fba1d9-c469-5f47-b353-29229eb453d5",
+              "uuid": "8a976d44-c6e0-58bd-bba5-a8da17f0d403",
+              "description": "Implemented via aws_cloudtrail resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "2bd827f6-38f1-5fa2-b7a0-bf85120fd583",
+          "control-id": "AU-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "AU-2_smt",
+              "uuid": "099e8a6a-ca87-54ac-8e1d-05697abee5a0",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_cloudtrail, aws_cloudwatch_log_group, aws_db_instance. (Event Logging)"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "a2fba1d9-c469-5f47-b353-29229eb453d5",
+              "uuid": "4577b47b-a4db-5fce-9143-3b1399ec250f",
+              "description": "Implemented via aws_cloudtrail resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            },
+            {
+              "component-uuid": "559f56b5-7b38-56a9-8575-f5e937ec080e",
+              "uuid": "b6f2d6b6-5127-53e4-97b3-679892c8e43b",
+              "description": "Implemented via aws_cloudwatch_log_group resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            },
+            {
+              "component-uuid": "22cd3211-af2d-5d65-b3ef-118b6720dfcb",
+              "uuid": "d42a65b1-4606-50ae-ab86-43cf3e60f6a2",
+              "description": "Implemented via aws_db_instance resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "f51cb16a-147f-5dc0-9f9a-61f71fa72ebc",
+          "control-id": "AU-3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "AU-3_smt",
+              "uuid": "12172f71-bdf4-5132-9968-7383eb268411",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_cloudtrail. (Content of Audit Records)"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "a2fba1d9-c469-5f47-b353-29229eb453d5",
+              "uuid": "a5a955bd-fbfc-591f-9cf4-8d6eadc0fe4a",
+              "description": "Implemented via aws_cloudtrail resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "dff8ed4e-f04b-5989-aa32-2273cc27c049",
+          "control-id": "AU-6",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "AU-6_smt",
+              "uuid": "16dab4ba-3e78-5d5a-b92b-50862f80306c",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_cloudtrail, aws_cloudwatch_log_group. (Audit Record Review, Analysis, and Reporting)"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "a2fba1d9-c469-5f47-b353-29229eb453d5",
+              "uuid": "823c1192-8337-5b95-b697-966164e0a301",
+              "description": "Implemented via aws_cloudtrail resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            },
+            {
+              "component-uuid": "559f56b5-7b38-56a9-8575-f5e937ec080e",
+              "uuid": "401f0588-d24e-5c66-a544-858ba21d8077",
+              "description": "Implemented via aws_cloudwatch_log_group resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "6c8c579a-b162-56ee-ae43-b39fc831ac12",
+          "control-id": "AU-9",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "AU-9_smt",
+              "uuid": "99fc4cd7-c669-53c5-8160-cb5bda518909",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_cloudtrail, aws_cloudwatch_log_group, aws_s3_bucket. (Protection of Audit Information)"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "a2fba1d9-c469-5f47-b353-29229eb453d5",
+              "uuid": "eaef7c65-0e21-5392-8dd8-3684e1d0296b",
+              "description": "Implemented via aws_cloudtrail resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            },
+            {
+              "component-uuid": "559f56b5-7b38-56a9-8575-f5e937ec080e",
+              "uuid": "cafe6ad0-06cd-5a84-8172-086961775ad1",
+              "description": "Implemented via aws_cloudwatch_log_group resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            },
+            {
+              "component-uuid": "17aba842-c75a-5d0f-bd85-fabe5dfa9b3e",
+              "uuid": "b10a8383-a5d1-581e-afe0-ae863494fa20",
+              "description": "Implemented via aws_s3_bucket resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "013fe7ca-731c-585a-b5aa-09e5eeb4a80a",
+          "control-id": "CA-3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "CA-3_smt",
+              "uuid": "018d0153-8016-5bed-834b-ed98596f8dea",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_security_group. (Information Exchange)"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "6c88e31c-afab-5183-b4d9-0fa7ab1c8998",
+              "uuid": "b6720cfa-3cc3-5d3e-8557-c3a941d0c56c",
+              "description": "Implemented via aws_security_group resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "1ff88aac-829f-5097-aebd-1c5c61a2ad89",
+          "control-id": "CP-10",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "CP-10_smt",
+              "uuid": "80b0aa77-65e5-5d2d-bba0-feed0e4c6a0b",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_db_instance. (System Recovery and Reconstitution)"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "22cd3211-af2d-5d65-b3ef-118b6720dfcb",
+              "uuid": "fc3758d1-c64b-5075-b8f6-c360dc706850",
+              "description": "Implemented via aws_db_instance resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "05306d0c-7306-5bc9-b27d-20dd03d7f735",
+          "control-id": "CP-9",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "CP-9_smt",
+              "uuid": "4b93c091-0e84-5344-8ff2-ffbd6f9b9cfb",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_db_instance. (System Backup)"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "22cd3211-af2d-5d65-b3ef-118b6720dfcb",
+              "uuid": "b8b52030-8c86-5684-90cd-06bd614c25f5",
+              "description": "Implemented via aws_db_instance resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "2ec3a263-759e-5665-b4a4-4e1523c6c463",
+          "control-id": "IA-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "IA-2_smt",
+              "uuid": "b1b4b5af-e5fc-5a25-ba70-f831727638ff",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_iam_role. (Identification and Authentication (Organizational Users))"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "c05a108c-4f3b-5403-a2e8-e521dc35565c",
+              "uuid": "dc9c6e44-2bae-5851-b5ff-abc7bd5039d4",
+              "description": "Implemented via aws_iam_role resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "acc490b0-ccd8-5f00-b6ad-d9e27cc864bb",
+          "control-id": "RA-5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "RA-5_smt",
+              "uuid": "8b8f7db8-ed1a-57d9-a4ad-8f55f5fc5506",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_guardduty_detector. (Vulnerability Monitoring and Scanning)"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "497bbbeb-cd78-5557-8332-7689d6fc69b1",
+              "uuid": "45c5da46-b75a-52ee-a057-1cf7e2d6f566",
+              "description": "Implemented via aws_guardduty_detector resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "d0864591-4be2-5583-86a8-ef49afefce38",
+          "control-id": "SC-12",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "SC-12_smt",
+              "uuid": "7c97f7cb-164b-542d-88ff-0fe398fbc6ea",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_kms_key. (Cryptographic Key Establishment and Management)"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "9bd20267-fb4b-547d-8a02-ea7787f5a4f2",
+              "uuid": "ca00494b-aecc-5b2e-8b5d-37c91805d553",
+              "description": "Implemented via aws_kms_key resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "01a9b465-6399-56f6-9fb9-77bf09642ca8",
+          "control-id": "SC-13",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "SC-13_smt",
+              "uuid": "b48db609-48c2-5743-916a-3022eeeeeac9",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_kms_key, aws_s3_bucket. (Cryptographic Protection)"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "9bd20267-fb4b-547d-8a02-ea7787f5a4f2",
+              "uuid": "5371fb62-5c7d-5f15-809e-9c7c7a0d08b6",
+              "description": "Implemented via aws_kms_key resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            },
+            {
+              "component-uuid": "17aba842-c75a-5d0f-bd85-fabe5dfa9b3e",
+              "uuid": "5f48558c-0c2b-5527-b998-577dd28d0c96",
+              "description": "Implemented via aws_s3_bucket resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "b5bec185-dff8-5948-be38-de950701cfd3",
+          "control-id": "SC-28",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "SC-28_smt",
+              "uuid": "e0490b38-b92d-56b2-b167-06223eca5518",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_db_instance, aws_kms_key, aws_s3_bucket. (Protection of Information at Rest)"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "22cd3211-af2d-5d65-b3ef-118b6720dfcb",
+              "uuid": "ea2fd8eb-7ea3-5aeb-9acc-7dd63c55efe8",
+              "description": "Implemented via aws_db_instance resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            },
+            {
+              "component-uuid": "9bd20267-fb4b-547d-8a02-ea7787f5a4f2",
+              "uuid": "58be60ec-0792-5ecf-81bb-ca1bc5d57b77",
+              "description": "Implemented via aws_kms_key resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            },
+            {
+              "component-uuid": "17aba842-c75a-5d0f-bd85-fabe5dfa9b3e",
+              "uuid": "318eaef1-2fcd-5015-ac35-0da31a10e269",
+              "description": "Implemented via aws_s3_bucket resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "150de6d1-b101-5e2b-854b-d65fc030f0c8",
+          "control-id": "SC-7",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "SC-7_smt",
+              "uuid": "45120b8b-aa04-56c7-85b2-2ac55e96c36c",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_lb, aws_security_group, aws_vpc. (Boundary Protection)"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "f6cb4821-b457-5b7f-99da-32102249adb3",
+              "uuid": "c6169fc3-3d2b-5b53-b12c-98c16996d5c9",
+              "description": "Implemented via aws_lb resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            },
+            {
+              "component-uuid": "6c88e31c-afab-5183-b4d9-0fa7ab1c8998",
+              "uuid": "4564f332-fa26-57ae-8081-82f8fe9f6667",
+              "description": "Implemented via aws_security_group resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            },
+            {
+              "component-uuid": "f4ac9d54-b027-5a15-806a-9a21dbcc156f",
+              "uuid": "13450d6f-38a7-5530-8c56-0e3c67a043ad",
+              "description": "Implemented via aws_vpc resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "ed7dea8d-9bd8-5d86-97d3-d6a129e7e9a9",
+          "control-id": "SC-8",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "SC-8_smt",
+              "uuid": "7496128f-fe68-56da-a625-58521c18eb16",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_lb. (Transmission Confidentiality and Integrity)"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "f6cb4821-b457-5b7f-99da-32102249adb3",
+              "uuid": "e16013af-fbc5-5a14-bd6c-639ecd11bb42",
+              "description": "Implemented via aws_lb resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "940b48a9-9156-5ae9-8425-ca400d156cc1",
+          "control-id": "SI-4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "SI-4_smt",
+              "uuid": "3ed1993c-722f-5ee1-859a-57eb19b62784",
+              "remarks": "This control is partially addressed by the following discovered resource types: aws_guardduty_detector. (System Monitoring)"
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "497bbbeb-cd78-5557-8332-7689d6fc69b1",
+              "uuid": "366687de-18a6-553d-9c05-5100654ca636",
+              "description": "Implemented via aws_guardduty_detector resources.",
+              "implementation-status": {
+                "state": "implemented"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "e607ea3a-a402-5e94-9812-bebf6f54d8d5",
+          "control-id": "CM-8",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "planned"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "CM-8_smt",
+              "uuid": "5544d8b6-4b25-573d-a4d1-bb57427d2582",
+              "remarks": "No resource in the inventory currently satisfies this required control (System Component Inventory). Implementation is planned."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
