@@ -1,0 +1,91 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+env:
+  OSCAL_RELEASE: https://github.com/usnistgov/OSCAL/releases/download/v1.1.2
+
+jobs:
+  lint:
+    name: Lint (Ruff)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install ruff==0.16.9
+      - run: ruff check .
+      - run: ruff format --check .
+
+  test:
+    name: Test (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install package and dev dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+      - name: Run tests with coverage
+        run: pytest --cov=boundary_drift_detector --cov-report=term-missing
+
+  samples:
+    name: Samples match the code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e .
+      - run: python tools/make_samples.py --check
+
+  oscal-schema:
+    name: OSCAL 1.1.2 schema validation and CI gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e . jsonschema
+      - name: Download NIST schemas and verify checksums
+        run: |
+          mkdir -p /tmp/nist
+          for f in ssp assessment-results; do
+            curl -sSfL "$OSCAL_RELEASE/oscal_${f}_schema.json" -o "/tmp/nist/oscal_${f}_schema.json"
+          done
+          (cd /tmp/nist && sha256sum -c "$GITHUB_WORKSPACE/schemas/SHA256SUMS")
+          for f in /tmp/nist/*.json; do cmp "$f" "schemas/$(basename "$f")"; done
+      - name: Run the drift checks and validate the OSCAL output
+        run: |
+          boundary-drift-detector check --declared samples/ssp.json --actual samples/aws-config-export.json -o out/config || true
+          boundary-drift-detector check --declared samples/boundary.yaml --actual samples/terraform.tfstate -o out/terraform
+          python tools/validate_oscal.py --schema-dir /tmp/nist samples/ssp.json out/*/drift.oscal.json
+      - name: Gate blocks the drifted inventory and passes the clean one
+        run: |
+          boundary-drift-detector check --declared samples/boundary.yaml --actual samples/terraform.tfstate --fail-on low
+          if boundary-drift-detector check --declared samples/ssp.json --actual samples/aws-config-export.json \
+               --fail-on high; then
+            echo "expected the drifted inventory to fail the gate"; exit 1
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: drift-reports
+          path: out/
