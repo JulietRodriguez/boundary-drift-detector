@@ -1,0 +1,79 @@
+{
+  "assessment-results": {
+    "uuid": "b0e875af-d989-56cb-9e3d-daa413dfb06c",
+    "metadata": {
+      "title": "Boundary drift check: SYNTHETIC Case Management System (CMS-DEMO) production",
+      "last-modified": "2026-11-17T12:00:00+00:00",
+      "version": "0.1.0",
+      "oscal-version": "1.1.2",
+      "props": [
+        {
+          "name": "generator",
+          "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+          "value": "boundary-drift-detector 0.1.0"
+        }
+      ]
+    },
+    "import-ap": {
+      "href": "#99fd24fb-0993-5c6c-b29e-06704fd14fa8",
+      "remarks": "No assessment plan applies; this points at the drift check method."
+    },
+    "results": [
+      {
+        "uuid": "1c7cdb8f-538d-581d-8005-99be12f54ad1",
+        "title": "Authorization boundary drift check: SYNTHETIC Case Management System (CMS-DEMO) production",
+        "description": "Compared 9 declared resources with 9 resources in the inventory (terraform.tfstate (terraform, 4 helper resources not compared)). 9 matched.",
+        "start": "2026-11-17T12:00:00+00:00",
+        "end": "2026-11-17T12:00:00+00:00",
+        "props": [
+          {
+            "name": "declared-resources",
+            "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+            "value": "9"
+          },
+          {
+            "name": "inventory-resources",
+            "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+            "value": "9"
+          },
+          {
+            "name": "matched-resources",
+            "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+            "value": "9"
+          }
+        ],
+        "reviewed-controls": {
+          "control-selections": [
+            {
+              "description": "Controls a boundary drift check bears on.",
+              "include-controls": [
+                {
+                  "control-id": "cm-8"
+                },
+                {
+                  "control-id": "sc-28"
+                },
+                {
+                  "control-id": "sc-7"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "back-matter": {
+      "resources": [
+        {
+          "uuid": "99fd24fb-0993-5c6c-b29e-06704fd14fa8",
+          "title": "boundary-drift-detector 0.1.0 method",
+          "rlinks": [
+            {
+              "href": "https://github.com/JulietRodriguez/boundary-drift-detector/blob/main/docs/design-notes.md"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

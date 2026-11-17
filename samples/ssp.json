@@ -1,0 +1,336 @@
+{
+  "system-security-plan": {
+    "uuid": "94663385-82e3-505a-9166-a10e4739c11b",
+    "metadata": {
+      "title": "SYNTHETIC SSP inventory for CMS-DEMO",
+      "last-modified": "2026-11-17T12:00:00+00:00",
+      "version": "1.0",
+      "oscal-version": "1.1.2",
+      "remarks": "SYNTHETIC sample for boundary-drift-detector. Not a real system."
+    },
+    "import-profile": {
+      "href": "#e3b0f287-45e5-5374-96c6-c7d46f96fb53"
+    },
+    "system-characteristics": {
+      "system-ids": [
+        {
+          "identifier-type": "https://ietf.org/rfc/rfc4122",
+          "id": "610d2cfe-4f35-589a-a2ec-9fcb82a0f1a7"
+        }
+      ],
+      "system-name": "SYNTHETIC Case Management System (CMS-DEMO)",
+      "description": "Synthetic system for the boundary drift sample.",
+      "system-information": {
+        "information-types": [
+          {
+            "title": "Case records",
+            "description": "Synthetic information type."
+          }
+        ]
+      },
+      "status": {
+        "state": "operational"
+      },
+      "authorization-boundary": {
+        "description": "AWS account 111122223333, region us-east-1: the resources in the inventory below."
+      }
+    },
+    "system-implementation": {
+      "users": [
+        {
+          "uuid": "0276a385-690e-55e6-9262-648908f573e1",
+          "title": "Caseworker"
+        }
+      ],
+      "components": [
+        {
+          "uuid": "360b61a2-5b57-5456-b90c-97d37825d1f5",
+          "type": "this-system",
+          "title": "CMS-DEMO",
+          "description": "The whole system.",
+          "status": {
+            "state": "operational"
+          }
+        }
+      ],
+      "inventory-items": [
+        {
+          "uuid": "de195e19-018e-562c-9ae6-6a0b7a1cf82c",
+          "description": "AWS::S3::Bucket arn:aws:s3:::cms-demo-case-files",
+          "props": [
+            {
+              "name": "asset-id",
+              "value": "arn:aws:s3:::cms-demo-case-files"
+            },
+            {
+              "name": "resource-type",
+              "value": "AWS::S3::Bucket"
+            },
+            {
+              "name": "public",
+              "value": "no"
+            },
+            {
+              "name": "encrypted",
+              "value": "yes"
+            }
+          ],
+          "implemented-components": [
+            {
+              "component-uuid": "360b61a2-5b57-5456-b90c-97d37825d1f5"
+            }
+          ]
+        },
+        {
+          "uuid": "f7a73a6a-d468-5055-ac80-c57aa66ff8f9",
+          "description": "AWS::S3::Bucket arn:aws:s3:::cms-demo-logs",
+          "props": [
+            {
+              "name": "asset-id",
+              "value": "arn:aws:s3:::cms-demo-logs"
+            },
+            {
+              "name": "resource-type",
+              "value": "AWS::S3::Bucket"
+            },
+            {
+              "name": "public",
+              "value": "no"
+            },
+            {
+              "name": "encrypted",
+              "value": "yes"
+            }
+          ],
+          "implemented-components": [
+            {
+              "component-uuid": "360b61a2-5b57-5456-b90c-97d37825d1f5"
+            }
+          ]
+        },
+        {
+          "uuid": "b25005a0-ff07-58a3-8933-8ddc2ef26987",
+          "description": "AWS::EC2::Instance cms-demo-web-1",
+          "props": [
+            {
+              "name": "asset-id",
+              "value": "arn:aws:ec2:us-east-1:111122223333:instance/i-0a1b2c3d4e5f60001"
+            },
+            {
+              "name": "resource-type",
+              "value": "AWS::EC2::Instance"
+            },
+            {
+              "name": "region",
+              "value": "us-east-1"
+            },
+            {
+              "name": "asset-name",
+              "value": "cms-demo-web-1"
+            },
+            {
+              "name": "public",
+              "value": "no"
+            }
+          ],
+          "implemented-components": [
+            {
+              "component-uuid": "360b61a2-5b57-5456-b90c-97d37825d1f5"
+            }
+          ]
+        },
+        {
+          "uuid": "4b5a351a-71cd-5ab2-a33d-df085a36f187",
+          "description": "AWS::EC2::Instance cms-demo-web-2",
+          "props": [
+            {
+              "name": "asset-id",
+              "value": "arn:aws:ec2:us-east-1:111122223333:instance/i-0a1b2c3d4e5f60002"
+            },
+            {
+              "name": "resource-type",
+              "value": "AWS::EC2::Instance"
+            },
+            {
+              "name": "region",
+              "value": "us-east-1"
+            },
+            {
+              "name": "asset-name",
+              "value": "cms-demo-web-2"
+            },
+            {
+              "name": "public",
+              "value": "no"
+            }
+          ],
+          "implemented-components": [
+            {
+              "component-uuid": "360b61a2-5b57-5456-b90c-97d37825d1f5"
+            }
+          ]
+        },
+        {
+          "uuid": "1fddd801-9ea7-5782-9f2d-fe1f4a413509",
+          "description": "AWS::EC2::SecurityGroup cms-demo-app",
+          "props": [
+            {
+              "name": "asset-id",
+              "value": "arn:aws:ec2:us-east-1:111122223333:security-group/sg-0a1b2c3d4e5f60001"
+            },
+            {
+              "name": "resource-type",
+              "value": "AWS::EC2::SecurityGroup"
+            },
+            {
+              "name": "region",
+              "value": "us-east-1"
+            },
+            {
+              "name": "asset-name",
+              "value": "cms-demo-app"
+            },
+            {
+              "name": "public",
+              "value": "no"
+            }
+          ],
+          "implemented-components": [
+            {
+              "component-uuid": "360b61a2-5b57-5456-b90c-97d37825d1f5"
+            }
+          ]
+        },
+        {
+          "uuid": "def657a7-acb4-5aef-81f6-87e19b0bd40b",
+          "description": "AWS::RDS::DBInstance cms-demo-db",
+          "props": [
+            {
+              "name": "asset-id",
+              "value": "arn:aws:rds:us-east-1:111122223333:db:cms-demo-db"
+            },
+            {
+              "name": "resource-type",
+              "value": "AWS::RDS::DBInstance"
+            },
+            {
+              "name": "region",
+              "value": "us-east-1"
+            },
+            {
+              "name": "asset-name",
+              "value": "cms-demo-db"
+            },
+            {
+              "name": "public",
+              "value": "no"
+            },
+            {
+              "name": "encrypted",
+              "value": "yes"
+            }
+          ],
+          "implemented-components": [
+            {
+              "component-uuid": "360b61a2-5b57-5456-b90c-97d37825d1f5"
+            }
+          ]
+        },
+        {
+          "uuid": "e6372345-29ab-5447-97d2-9cd2ea659f36",
+          "description": "AWS::ElasticLoadBalancingV2::LoadBalancer cms-demo-alb",
+          "props": [
+            {
+              "name": "asset-id",
+              "value": "arn:aws:elasticloadbalancing:us-east-1:111122223333:loadbalancer/app/cms-demo-alb/0a1b2c3d4e5f6001"
+            },
+            {
+              "name": "resource-type",
+              "value": "AWS::ElasticLoadBalancingV2::LoadBalancer"
+            },
+            {
+              "name": "region",
+              "value": "us-east-1"
+            },
+            {
+              "name": "asset-name",
+              "value": "cms-demo-alb"
+            },
+            {
+              "name": "public",
+              "value": "yes"
+            }
+          ],
+          "implemented-components": [
+            {
+              "component-uuid": "360b61a2-5b57-5456-b90c-97d37825d1f5"
+            }
+          ]
+        },
+        {
+          "uuid": "7f4d9ccd-aa6a-5b91-8068-b25b3d495396",
+          "description": "AWS::KMS::Key arn:aws:kms:us-east-1:111122223333:key/0a1b2c3d-0000-4000-8000-000000000001",
+          "props": [
+            {
+              "name": "asset-id",
+              "value": "arn:aws:kms:us-east-1:111122223333:key/0a1b2c3d-0000-4000-8000-000000000001"
+            },
+            {
+              "name": "resource-type",
+              "value": "AWS::KMS::Key"
+            },
+            {
+              "name": "region",
+              "value": "us-east-1"
+            }
+          ],
+          "implemented-components": [
+            {
+              "component-uuid": "360b61a2-5b57-5456-b90c-97d37825d1f5"
+            }
+          ]
+        },
+        {
+          "uuid": "895e5cc7-5849-50ad-b84a-ec4be6b9b703",
+          "description": "AWS::IAM::Role cms-demo-app",
+          "props": [
+            {
+              "name": "asset-id",
+              "value": "arn:aws:iam::111122223333:role/cms-demo-app"
+            },
+            {
+              "name": "resource-type",
+              "value": "AWS::IAM::Role"
+            },
+            {
+              "name": "asset-name",
+              "value": "cms-demo-app"
+            }
+          ],
+          "implemented-components": [
+            {
+              "component-uuid": "360b61a2-5b57-5456-b90c-97d37825d1f5"
+            }
+          ]
+        }
+      ]
+    },
+    "control-implementation": {
+      "description": "Not part of this sample.",
+      "implemented-requirements": [
+        {
+          "uuid": "f6947342-e031-587b-a325-88869ca70190",
+          "control-id": "cm-8"
+        }
+      ]
+    },
+    "back-matter": {
+      "resources": [
+        {
+          "uuid": "e3b0f287-45e5-5374-96c6-c7d46f96fb53",
+          "title": "Baseline profile (not included)"
+        }
+      ]
+    }
+  }
+}

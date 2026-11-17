@@ -1,0 +1,471 @@
+{
+  "assessment-results": {
+    "uuid": "b0e875af-d989-56cb-9e3d-daa413dfb06c",
+    "metadata": {
+      "title": "Boundary drift check: SYNTHETIC Case Management System (CMS-DEMO) production",
+      "last-modified": "2026-11-17T12:00:00+00:00",
+      "version": "0.1.0",
+      "oscal-version": "1.1.2",
+      "props": [
+        {
+          "name": "generator",
+          "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+          "value": "boundary-drift-detector 0.1.0"
+        }
+      ]
+    },
+    "import-ap": {
+      "href": "#99fd24fb-0993-5c6c-b29e-06704fd14fa8",
+      "remarks": "No assessment plan applies; this points at the drift check method."
+    },
+    "results": [
+      {
+        "uuid": "1c7cdb8f-538d-581d-8005-99be12f54ad1",
+        "title": "Authorization boundary drift check: SYNTHETIC Case Management System (CMS-DEMO) production",
+        "description": "Compared 9 declared resources with 10 resources in the inventory (aws-config-export.json (aws-config)). 8 matched.",
+        "start": "2026-11-17T12:00:00+00:00",
+        "end": "2026-11-17T12:00:00+00:00",
+        "props": [
+          {
+            "name": "declared-resources",
+            "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+            "value": "9"
+          },
+          {
+            "name": "inventory-resources",
+            "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+            "value": "10"
+          },
+          {
+            "name": "matched-resources",
+            "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+            "value": "8"
+          }
+        ],
+        "reviewed-controls": {
+          "control-selections": [
+            {
+              "description": "Controls a boundary drift check bears on.",
+              "include-controls": [
+                {
+                  "control-id": "cm-8"
+                },
+                {
+                  "control-id": "sc-28"
+                },
+                {
+                  "control-id": "sc-7"
+                }
+              ]
+            }
+          ]
+        },
+        "local-definitions": {
+          "inventory-items": [
+            {
+              "uuid": "63d6a241-8c6b-5b12-898d-83508eda93d0",
+              "description": "AWS::S3::Bucket cms-demo-export-tmp (from aws-config-export.json)",
+              "props": [
+                {
+                  "name": "asset-id",
+                  "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                  "value": "arn:aws:s3:::cms-demo-export-tmp"
+                },
+                {
+                  "name": "resource-type",
+                  "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                  "value": "AWS::S3::Bucket"
+                },
+                {
+                  "name": "region",
+                  "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                  "value": "us-west-2"
+                }
+              ]
+            },
+            {
+              "uuid": "aac767dc-6feb-561b-9baa-82db6f2ac2fe",
+              "description": "AWS::EC2::SecurityGroup cms-demo-app (from aws-config-export.json)",
+              "props": [
+                {
+                  "name": "asset-id",
+                  "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                  "value": "arn:aws:ec2:us-east-1:111122223333:security-group/sg-0a1b2c3d4e5f60001"
+                },
+                {
+                  "name": "resource-type",
+                  "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                  "value": "AWS::EC2::SecurityGroup"
+                },
+                {
+                  "name": "region",
+                  "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                  "value": "us-east-1"
+                }
+              ]
+            },
+            {
+              "uuid": "422706f9-ff69-53a0-ae1c-d0e107bb71a7",
+              "description": "AWS::EC2::Instance debug-box (from aws-config-export.json)",
+              "props": [
+                {
+                  "name": "asset-id",
+                  "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                  "value": "arn:aws:ec2:us-east-1:111122223333:instance/i-0a1b2c3d4e5f69999"
+                },
+                {
+                  "name": "resource-type",
+                  "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                  "value": "AWS::EC2::Instance"
+                },
+                {
+                  "name": "region",
+                  "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                  "value": "us-east-1"
+                }
+              ]
+            },
+            {
+              "uuid": "f7ee3525-a73d-5315-8ee2-541731242fd8",
+              "description": "AWS::RDS::DBInstance cms-demo-db (from aws-config-export.json)",
+              "props": [
+                {
+                  "name": "asset-id",
+                  "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                  "value": "arn:aws:rds:us-east-1:111122223333:db:cms-demo-db"
+                },
+                {
+                  "name": "resource-type",
+                  "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                  "value": "AWS::RDS::DBInstance"
+                },
+                {
+                  "name": "region",
+                  "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                  "value": "us-east-1"
+                }
+              ]
+            },
+            {
+              "uuid": "a2aeb2aa-8281-55af-8997-cc2db523c0c7",
+              "description": "AWS::EC2::Instance cms-demo-web-2 (from yaml)",
+              "props": [
+                {
+                  "name": "asset-id",
+                  "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                  "value": "arn:aws:ec2:us-east-1:111122223333:instance/i-0a1b2c3d4e5f60002"
+                },
+                {
+                  "name": "resource-type",
+                  "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                  "value": "AWS::EC2::Instance"
+                },
+                {
+                  "name": "region",
+                  "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                  "value": "us-east-1"
+                }
+              ]
+            },
+            {
+              "uuid": "97ef1636-0130-56b9-b4f0-79e63d019bc9",
+              "description": "AWS::S3::Bucket cms-demo-logs (from aws-config-export.json)",
+              "props": [
+                {
+                  "name": "asset-id",
+                  "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                  "value": "arn:aws:s3:::cms-demo-logs"
+                },
+                {
+                  "name": "resource-type",
+                  "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                  "value": "AWS::S3::Bucket"
+                },
+                {
+                  "name": "region",
+                  "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                  "value": "us-east-1"
+                }
+              ]
+            }
+          ]
+        },
+        "observations": [
+          {
+            "uuid": "63c8fa66-9db1-5f94-8ae5-18d677b7b908",
+            "title": "undeclared: AWS::S3::Bucket cms-demo-export-tmp",
+            "description": "Exists in the inventory but is not declared in the boundary (in region us-west-2, outside the boundary's regions), and it is publicly exposed.",
+            "props": [
+              {
+                "name": "drift-kind",
+                "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                "value": "undeclared"
+              },
+              {
+                "name": "severity",
+                "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                "value": "critical"
+              }
+            ],
+            "methods": [
+              "TEST"
+            ],
+            "types": [
+              "finding"
+            ],
+            "subjects": [
+              {
+                "subject-uuid": "63d6a241-8c6b-5b12-898d-83508eda93d0",
+                "type": "inventory-item"
+              }
+            ],
+            "collected": "2026-11-17T12:00:00+00:00"
+          },
+          {
+            "uuid": "fc5ab9af-c9ce-514f-9115-97280e09e0cf",
+            "title": "public: AWS::EC2::SecurityGroup cms-demo-app",
+            "description": "Expected private; found publicly exposed.",
+            "props": [
+              {
+                "name": "drift-kind",
+                "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                "value": "public"
+              },
+              {
+                "name": "severity",
+                "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                "value": "critical"
+              }
+            ],
+            "methods": [
+              "TEST"
+            ],
+            "types": [
+              "finding"
+            ],
+            "subjects": [
+              {
+                "subject-uuid": "aac767dc-6feb-561b-9baa-82db6f2ac2fe",
+                "type": "inventory-item"
+              }
+            ],
+            "collected": "2026-11-17T12:00:00+00:00"
+          },
+          {
+            "uuid": "ef012f7b-32da-585c-81cb-4b5f6150063a",
+            "title": "undeclared: AWS::EC2::Instance debug-box",
+            "description": "Exists in the inventory but is not declared in the boundary.",
+            "props": [
+              {
+                "name": "drift-kind",
+                "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                "value": "undeclared"
+              },
+              {
+                "name": "severity",
+                "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                "value": "high"
+              }
+            ],
+            "methods": [
+              "TEST"
+            ],
+            "types": [
+              "finding"
+            ],
+            "subjects": [
+              {
+                "subject-uuid": "422706f9-ff69-53a0-ae1c-d0e107bb71a7",
+                "type": "inventory-item"
+              }
+            ],
+            "collected": "2026-11-17T12:00:00+00:00"
+          },
+          {
+            "uuid": "18877096-9d02-5330-906e-9c6ab05e64fb",
+            "title": "encryption: AWS::RDS::DBInstance cms-demo-db",
+            "description": "Expected encrypted at rest; found unencrypted.",
+            "props": [
+              {
+                "name": "drift-kind",
+                "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                "value": "encryption"
+              },
+              {
+                "name": "severity",
+                "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                "value": "high"
+              }
+            ],
+            "methods": [
+              "TEST"
+            ],
+            "types": [
+              "finding"
+            ],
+            "subjects": [
+              {
+                "subject-uuid": "f7ee3525-a73d-5315-8ee2-541731242fd8",
+                "type": "inventory-item"
+              }
+            ],
+            "collected": "2026-11-17T12:00:00+00:00"
+          },
+          {
+            "uuid": "e9166892-3719-5e10-91df-3d4ab9d22123",
+            "title": "missing: AWS::EC2::Instance cms-demo-web-2",
+            "description": "Declared in the boundary but not found in the inventory.",
+            "props": [
+              {
+                "name": "drift-kind",
+                "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                "value": "missing"
+              },
+              {
+                "name": "severity",
+                "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                "value": "medium"
+              }
+            ],
+            "methods": [
+              "TEST"
+            ],
+            "types": [
+              "finding"
+            ],
+            "subjects": [
+              {
+                "subject-uuid": "a2aeb2aa-8281-55af-8997-cc2db523c0c7",
+                "type": "inventory-item"
+              }
+            ],
+            "collected": "2026-11-17T12:00:00+00:00"
+          },
+          {
+            "uuid": "9af4e060-7527-5f4a-a30f-261296f74fdb",
+            "title": "unverified: AWS::S3::Bucket cms-demo-logs",
+            "description": "Expected encrypted, but the inventory doesn't record encryption for this resource.",
+            "props": [
+              {
+                "name": "drift-kind",
+                "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                "value": "unverified"
+              },
+              {
+                "name": "severity",
+                "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                "value": "info"
+              }
+            ],
+            "methods": [
+              "TEST"
+            ],
+            "types": [
+              "finding"
+            ],
+            "subjects": [
+              {
+                "subject-uuid": "97ef1636-0130-56b9-b4f0-79e63d019bc9",
+                "type": "inventory-item"
+              }
+            ],
+            "collected": "2026-11-17T12:00:00+00:00"
+          }
+        ],
+        "findings": [
+          {
+            "uuid": "53e1816c-e2e8-5480-8eff-4c5ce158ee66",
+            "title": "CM-8 System Component Inventory: boundary drift",
+            "description": "3 boundary drift observation(s) (missing, undeclared) bear on CM-8. See the related observations.",
+            "props": [
+              {
+                "name": "severity",
+                "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                "value": "critical"
+              }
+            ],
+            "target": {
+              "type": "objective-id",
+              "target-id": "cm-8_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "63c8fa66-9db1-5f94-8ae5-18d677b7b908"
+              },
+              {
+                "observation-uuid": "ef012f7b-32da-585c-81cb-4b5f6150063a"
+              },
+              {
+                "observation-uuid": "e9166892-3719-5e10-91df-3d4ab9d22123"
+              }
+            ]
+          },
+          {
+            "uuid": "75f9dc9f-4f44-556f-991d-805440653da5",
+            "title": "SC-28 Protection of Information at Rest: boundary drift",
+            "description": "1 boundary drift observation(s) (encryption) bear on SC-28. See the related observations.",
+            "props": [
+              {
+                "name": "severity",
+                "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                "value": "high"
+              }
+            ],
+            "target": {
+              "type": "objective-id",
+              "target-id": "sc-28_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "18877096-9d02-5330-906e-9c6ab05e64fb"
+              }
+            ]
+          },
+          {
+            "uuid": "1bf984c8-3aa6-5fab-abfe-966d36d6f9c0",
+            "title": "SC-7 Boundary Protection: boundary drift",
+            "description": "1 boundary drift observation(s) (public) bear on SC-7. See the related observations.",
+            "props": [
+              {
+                "name": "severity",
+                "ns": "https://github.com/JulietRodriguez/boundary-drift-detector/ns/oscal",
+                "value": "critical"
+              }
+            ],
+            "target": {
+              "type": "objective-id",
+              "target-id": "sc-7_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "fc5ab9af-c9ce-514f-9115-97280e09e0cf"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "back-matter": {
+      "resources": [
+        {
+          "uuid": "99fd24fb-0993-5c6c-b29e-06704fd14fa8",
+          "title": "boundary-drift-detector 0.1.0 method",
+          "rlinks": [
+            {
+              "href": "https://github.com/JulietRodriguez/boundary-drift-detector/blob/main/docs/design-notes.md"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

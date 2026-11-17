@@ -1,0 +1,34 @@
+# SYNTHETIC boundary for an invented system. Account 111122223333 is AWS's documentation example.
+boundary:
+  name: SYNTHETIC Case Management System (CMS-DEMO) production
+  accounts: ["111122223333"]
+  regions: [us-east-1]
+  expect:
+    encrypted: true     # every storage resource must be encrypted at rest
+    public: false       # nothing is public unless a resource says so
+resources:
+  - id: arn:aws:s3:::cms-demo-case-files
+    type: AWS::S3::Bucket
+  - id: arn:aws:s3:::cms-demo-logs
+    type: AWS::S3::Bucket
+  - id: arn:aws:ec2:us-east-1:111122223333:instance/i-0a1b2c3d4e5f60001
+    type: AWS::EC2::Instance
+    name: cms-demo-web-1
+  - id: arn:aws:ec2:us-east-1:111122223333:instance/i-0a1b2c3d4e5f60002
+    type: AWS::EC2::Instance
+    name: cms-demo-web-2
+  - id: arn:aws:ec2:us-east-1:111122223333:security-group/sg-0a1b2c3d4e5f60001
+    type: AWS::EC2::SecurityGroup
+    name: cms-demo-app
+  - id: arn:aws:rds:us-east-1:111122223333:db:cms-demo-db
+    type: AWS::RDS::DBInstance
+    name: cms-demo-db
+  - id: arn:aws:elasticloadbalancing:us-east-1:111122223333:loadbalancer/app/cms-demo-alb/0a1b2c3d4e5f6001
+    type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    name: cms-demo-alb
+    public: true        # internet-facing by design
+  - id: arn:aws:kms:us-east-1:111122223333:key/0a1b2c3d-0000-4000-8000-000000000001
+    type: AWS::KMS::Key
+  - id: arn:aws:iam::111122223333:role/cms-demo-app
+    type: AWS::IAM::Role
+    name: cms-demo-app

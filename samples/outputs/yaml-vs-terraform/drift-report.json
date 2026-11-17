@@ -1,0 +1,48 @@
+{
+  "tool": {
+    "name": "boundary-drift-detector",
+    "version": "0.1.0"
+  },
+  "as_of": "2026-11-17T12:00:00+00:00",
+  "boundary": {
+    "name": "SYNTHETIC Case Management System (CMS-DEMO) production",
+    "source": "boundary.yaml",
+    "declared_resources": 9,
+    "allowed_regions": [
+      "us-east-1"
+    ],
+    "allowed_accounts": [
+      "111122223333"
+    ]
+  },
+  "inventory": {
+    "sources": [
+      "terraform.tfstate (terraform, 4 helper resources not compared)"
+    ],
+    "resources_in_scope": 9,
+    "ignored_by_type": {}
+  },
+  "matched": 9,
+  "match_methods": {
+    "arn": 9,
+    "id": 0,
+    "name": 0
+  },
+  "drift_by_kind": {
+    "undeclared": 0,
+    "missing": 0,
+    "region": 0,
+    "encryption": 0,
+    "public": 0,
+    "unverified": 0
+  },
+  "drift_by_severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+  },
+  "drifts": [],
+  "notes": []
+}
