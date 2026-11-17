@@ -224,3 +224,17 @@ def test_terraform_skips_data_sources():
         "resources": [{"mode": "data", "type": "aws_s3_bucket", "instances": [{"attributes": {"id": "x"}}]}],
     }
     assert terraform_to_resources(state) == ([], 0)
+
+
+def test_ssp_settings_resources_are_not_compared(write):
+    ssp = {"system-security-plan": {"system-implementation": {"inventory-items": [
+        {"uuid": "u1", "props": [{"name": "asset-id", "value": "arn:aws:s3:::b"}, {"name": "resource-type", "value": "aws_s3_bucket"}]},
+        {"uuid": "u2", "props": [{"name": "asset-id", "value": "b"},
+                                 {"name": "resource-type", "value": "aws_s3_bucket_server_side_encryption_configuration"}]},
+    ]}}}  # fmt: skip
+    b = load_boundary(write("s.json", ssp))
+    assert len(b.resources) == 1 and b.settings_skipped == 1
+    from boundary_drift_detector.compare import compare
+
+    r = compare(b, [])
+    assert "Terraform settings resources" in r.notes[0]

@@ -32,6 +32,7 @@ from pathlib import Path
 from typing import Any
 
 from boundary_drift_detector.awstypes import (
+    TERRAFORM_SETTINGS_TYPES,
     arn_account,
     arn_region,
     arn_resource_id,
@@ -55,6 +56,7 @@ class Boundary:
     ignore_types: set[str] = field(default_factory=set)
     source: str = ""
     ssp_uuid: str | None = None
+    settings_skipped: int = 0  # declared Terraform settings resources (not assets) that aren't compared
 
 
 def _yes_no(value: Any, where: str) -> bool | None:
@@ -104,9 +106,13 @@ def _from_ssp(root: dict, source: str) -> Boundary:
     if not items:
         raise InputError(f"{source}: the SSP has no system-implementation/inventory-items to compare")
     resources = []
+    skipped = 0
     for i, item in enumerate(items):
         props = _props(item)
         where = f"{source}: inventory-items[{i}]"
+        if (props.get("resource-type") or props.get("asset-type") or "") in TERRAFORM_SETTINGS_TYPES:
+            skipped += 1
+            continue
         rid = props.get("asset-id") or props.get("resource-id") or ""
         if not rid:
             raise InputError(f"{where}: needs an asset-id prop (ARN or resource ID)")
@@ -124,7 +130,9 @@ def _from_ssp(root: dict, source: str) -> Boundary:
             )
         )
     name = root.get("system-characteristics", {}).get("system-name") or root.get("metadata", {}).get("title", source)
-    return Boundary(name=str(name), resources=resources, source=source, ssp_uuid=root.get("uuid"))
+    return Boundary(
+        name=str(name), resources=resources, source=source, ssp_uuid=root.get("uuid"), settings_skipped=skipped
+    )
 
 
 def _from_yaml(data: dict, source: str) -> Boundary:

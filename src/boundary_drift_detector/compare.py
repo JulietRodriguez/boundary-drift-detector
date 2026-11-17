@@ -105,6 +105,11 @@ def compare(
     expect_public: bool | None = None,
 ) -> DriftReport:
     notes: list[str] = []
+    if boundary.settings_skipped:
+        notes.append(
+            f"{boundary.settings_skipped} declared inventory item(s) are Terraform settings resources (for example "
+            "an S3 bucket's encryption configuration), not assets; they were not compared."
+        )
     ignored_types = DEFAULT_IGNORED_TYPES | boundary.ignore_types
     declared_types = {d.type for d in boundary.resources}
     ignored: Counter = Counter()

@@ -31,7 +31,9 @@ still listed. Nobody notices until an assessor compares the two by hand, months 
 
 Resources are matched by ARN first, then by type plus ID, then by type plus name. Unknown values are
 reported as *unverified*, never guessed. IAM and other global resources are never flagged for region,
-and AWS Config's own compliance records are ignored as non-assets.
+and AWS Config's own compliance records are ignored as non-assets. Terraform settings resources that some SSP
+generators list as inventory items (for example `aws_s3_bucket_server_side_encryption_configuration`)
+are skipped and counted, since they configure an asset rather than being one.
 
 ## Quick start
 
