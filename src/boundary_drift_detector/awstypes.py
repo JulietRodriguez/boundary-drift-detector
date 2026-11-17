@@ -42,6 +42,22 @@ TERRAFORM_TO_AWS = {
     "aws_guardduty_detector": "AWS::GuardDuty::Detector",
 }
 
+# Terraform resources that configure another resource rather than being one.
+# Some SSP generators list them as inventory items; there is nothing in AWS
+# Config to match them against, so a declared one is not compared (and counted).
+TERRAFORM_SETTINGS_TYPES = frozenset(
+    {
+        "aws_s3_bucket_server_side_encryption_configuration",
+        "aws_s3_bucket_public_access_block",
+        "aws_s3_bucket_versioning",
+        "aws_s3_bucket_policy",
+        "aws_s3_bucket_acl",
+        "aws_s3_bucket_logging",
+        "aws_s3_bucket_lifecycle_configuration",
+        "aws_s3_bucket_ownership_controls",
+    }
+)
+
 # AWS Config records some things that are not assets of a system (compliance
 # results, recovery points). They are ignored unless the boundary lists them.
 DEFAULT_IGNORED_TYPES = frozenset(
